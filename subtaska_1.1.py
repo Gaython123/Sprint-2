@@ -1,4 +1,4 @@
-list_of_tasks = []
+list_of_tasks = {}
 
 
 while True:
@@ -12,20 +12,23 @@ while True:
 
         case '1':
             new_task = input("Create a new task")
-            print(f"'{new_task}' is added to the list")
-            list_of_tasks.append(new_task)
+            task_number = len(list_of_tasks) + 1
+            list_of_tasks[task_number] = new_task
+            print(f"'{new_task}' is added to the list!")
+
 
 
         case '2':
             print(f"{list_of_tasks}")
             if len(list_of_tasks) == 0: #if list_of_tasks = []
-                print("The list is empty")
+                print("The list is empty!")
+
 
         case '3':
             print(f"{list_of_tasks}")
-            a = int(input("Please input the index of the task you want to delete"))
+            a = int(input("Please input the number of the task you want to delete"))
             list_of_tasks.pop(a)
-            print("The task was deleted successfully")
+            print("The task was deleted successfully!")
 
         case '4':
             break
