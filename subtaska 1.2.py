@@ -1,5 +1,8 @@
 list_of_students = {}
 
+
+grades_of_student = []
+
 while True:
     user_command = input(" print 'help' to get all options")
 
@@ -14,6 +17,7 @@ while True:
                   "6. Exit the program")
         case '1':
             name_of_student = input("Enter the preferred student name")
+
             if len(name_of_student) >= 1:
                 print(f"{name_of_student} has been added successfully")
                 list_of_students[name_of_student] = name_of_student
@@ -23,6 +27,7 @@ while True:
 
         case '2':
             name_of_student = input("Enter student name")
+
             if name_of_student not in list_of_students:
                 print("The person doesnt belong to this list")
             else:
@@ -31,11 +36,15 @@ while True:
             grade_of_student = int(input(f"Enter grade '(1-12)' for {name_of_student}: "))
 
             if grade_of_student >= 1 and grade_of_student <= 12:
-                print(f"You have addded {grade_of_student} to {name_of_student} successfully")
+                print(f"You have added {grade_of_student} to {name_of_student} successfully")
+
+                for name_of_student in list_of_students:
+                    grades_of_student.append(grade_of_student)
+                    list_of_students[name_of_student] = grades_of_student
+
             else:
                 print("Chosen grade cannot be added")
 
-            list_of_students[name_of_student] = grade_of_student
 
         case '3':
             print(list_of_students)
