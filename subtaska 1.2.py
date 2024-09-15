@@ -68,7 +68,27 @@ while True:
             else:
                 print(f"'{name_of_student}' is not in the list")
 
-        #case '5':
+        case '5':
+            print(list_of_students)
+            for grades in list_of_students.values():
+
+                average_student_grade = statistics.mean(grades)
+                print(grades,f"the average grade is {average_student_grade}")
+
+
+                #for i in grades:
+
+                #for grade in range(len(grades)):
+                    #average_student_grade = sum(grades[grade]) / len(grades[grade])
+
+            #for grades in list_of_students.values():
+                #for i in range(len(grades)):
+                    #for j in range(len(grades)):
+                        #avg_grades = statistics.mean(grades)
+                        #if avg_grades[i] < avg_grades[j]:
+                         #   avg_grades[i], avg_grades[j] = avg_grades[j], avg_grades[i]
+
+
 
 
 
