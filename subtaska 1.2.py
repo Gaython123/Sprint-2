@@ -1,3 +1,5 @@
+import statistics
+
 list_of_students = {}
 
 
@@ -22,41 +24,51 @@ while True:
             if name_of_student in list_of_students:
                 print("The student is already in the list")
 
-            #elif len(list_of_students) == 0:
-            #    print("The list is empty")
-
             else:
                 print(f"{name_of_student} has been added successfully")
                 list_of_students[name_of_student + "_grades"] = []
 
-                #list_of_students[name_of_student] = name_of_student
-
-
-
-
         case '2':
             name_of_student = input("Enter student name")
 
-            if name_of_student + "_grades" not in list_of_students:
-                print("The person doesnt belong to this list")
-            else:
+            if name_of_student + "_grades" in list_of_students:
                 pass
 
-            grade_of_student = int(input(f"Enter grade '(1-12)' for '{name_of_student}': "))
-            list_of_students[name_of_student + "_grades"].append(grade_of_student)
+                grade_of_student = int(input(f"Enter grade '(1-12)' for '{name_of_student}': "))
+                list_of_students[name_of_student + "_grades"].append(grade_of_student)
 
-            if grade_of_student >= 1 and grade_of_student <= 12:
-                print(f"You have added '{grade_of_student}' to '{name_of_student}' successfully")
+                if grade_of_student >= 1 and grade_of_student <= 12:
+                    print(f"You have added '{grade_of_student}' to '{name_of_student}' successfully")
 
-            else:
-                print("Chosen grade cannot be added")
+                else:
+                    print("Chosen grade cannot be added")
 
+            if name_of_student + "_grades" not in list_of_students:
+                print("The person doesnt belong to this list")
 
         case '3':
             if len(list_of_students) == 0:
                 print("There are no students in the list")
+
             else:
                 print(list_of_students)
+
+        case '4':
+            name_of_student = input("Enter student name")
+            if name_of_student + "_grades" in list_of_students:
+
+                grades = list_of_students[name_of_student + "_grades"]
+                average_student_grade = statistics.mean(grades)
+                print(average_student_grade)
+
+
+            else:
+                pass
+                print("The student is not in the list")
+
+        
+
+
 
 
 
