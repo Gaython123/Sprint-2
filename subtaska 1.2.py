@@ -1,8 +1,8 @@
 list_of_students = {}
 
 
-grades_of_student = []
 
+grades_of_student = []
 while True:
     user_command = input(" print 'help' to get all options")
 
@@ -18,36 +18,45 @@ while True:
         case '1':
             name_of_student = input("Enter the preferred student name")
 
-            if len(name_of_student) >= 1:
-                print(f"{name_of_student} has been added successfully")
-                list_of_students[name_of_student] = name_of_student
 
-            elif len(list_of_students) == 0:
-                print("You have not added a student yet")
+            if name_of_student in list_of_students:
+                print("The student is already in the list")
+
+            #elif len(list_of_students) == 0:
+            #    print("The list is empty")
+
+            else:
+                print(f"{name_of_student} has been added successfully")
+                list_of_students[name_of_student + "_grades"] = []
+
+                #list_of_students[name_of_student] = name_of_student
+
+
+
 
         case '2':
             name_of_student = input("Enter student name")
 
-            if name_of_student not in list_of_students:
+            if name_of_student + "_grades" not in list_of_students:
                 print("The person doesnt belong to this list")
             else:
                 pass
 
-            grade_of_student = int(input(f"Enter grade '(1-12)' for {name_of_student}: "))
+            grade_of_student = int(input(f"Enter grade '(1-12)' for '{name_of_student}': "))
+            list_of_students[name_of_student + "_grades"].append(grade_of_student)
 
             if grade_of_student >= 1 and grade_of_student <= 12:
-                print(f"You have added {grade_of_student} to {name_of_student} successfully")
-
-                for name_of_student in list_of_students:
-                    grades_of_student.append(grade_of_student)
-                    list_of_students[name_of_student] = grades_of_student
+                print(f"You have added '{grade_of_student}' to '{name_of_student}' successfully")
 
             else:
                 print("Chosen grade cannot be added")
 
 
         case '3':
-            print(list_of_students)
+            if len(list_of_students) == 0:
+                print("There are no students in the list")
+            else:
+                print(list_of_students)
 
 
 
