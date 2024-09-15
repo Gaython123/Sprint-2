@@ -37,7 +37,7 @@ while True:
                 grade_of_student = int(input(f"Enter grade '(1-12)' for '{name_of_student}': "))
                 list_of_students[name_of_student + "_grades"].append(grade_of_student)
 
-                if grade_of_student >= 1 and grade_of_student <= 12:
+                if 1 <= grade_of_student <= 12:
                     print(f"You have added '{grade_of_student}' to '{name_of_student}' successfully")
 
                 else:
@@ -56,17 +56,22 @@ while True:
         case '4':
             name_of_student = input("Enter student name")
             if name_of_student + "_grades" in list_of_students:
-
                 grades = list_of_students[name_of_student + "_grades"]
-                average_student_grade = statistics.mean(grades)
-                print(average_student_grade)
 
+                if len(grades) == 0:
+                    print(f"There are no grades for '{name_of_student}'")
+
+                else:
+                    average_student_grade = statistics.mean(grades)
+                    print(f"The average grade for '{name_of_student}' is '{average_student_grade}'")
 
             else:
-                pass
-                print("The student is not in the list")
+                print(f"'{name_of_student}' is not in the list")
 
-        
+        #case '5':
+
+
+
 
 
 
