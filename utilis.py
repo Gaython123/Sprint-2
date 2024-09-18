@@ -1,3 +1,6 @@
+from idlelib.editor import keynames
+
+
 def print_menu():
     print("Welcome to the 'Students Grades Managment System'. To proceed choose an option(1-6):\n"
                   "1. Add a new student\n"
@@ -23,10 +26,10 @@ def add_grade(list_of_students):
     if name_of_student + "_grades" in list_of_students:
 
         grade_of_student = int(input(f"Enter grade '(1-12)' for '{name_of_student}': "))
-        list_of_students[name_of_student + "_grades"].append(grade_of_student)
-
+        
         if 1 <= grade_of_student <= 12:
             print(f"You have added '{grade_of_student}' to '{name_of_student}' successfully")
+            list_of_students[name_of_student + "_grades"].append(grade_of_student)
 
         else:
             print("Chosen grade cannot be added")
@@ -56,19 +59,27 @@ def calculating_average(list_of_students):
             print(f"There are no grades for '{name_of_student}'")
 
         else:
-            print(average(grades))
+            print(f"The average grade for {name_of_student} is {average(grades)}")
 
     else:
         print(f"'{name_of_student}' is not in the list")
 
 
 def the_highest_average(list_of_students):
-    a = 0
-    for grades in list_of_students.values():
-        b = average(grades)
-        if b > a:
-            a = b
-    print(a)
+    if len(list_of_students) == 0:
+        print("There are no students in the list")
+        
+    else:
+        grades = list_of_students[name_of_student + "_grades"]
+        for i in list_of_students.values():
+            a = average(grades)
+            b = 0
+            if b > a:
+                a = b
+                print(a)
+                #print(f"{a} is the highest average grade for {list_of_students.get(keynames)}")
+        
+            
 
 
 

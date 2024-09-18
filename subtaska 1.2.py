@@ -1,6 +1,7 @@
 from utilis import *
 
 list_of_students = {}
+
 while True:
     user_command = input(" print 'help' to get all options")
 
@@ -21,7 +22,7 @@ while True:
             calculating_average(list_of_students)
 
         case '5':
-            the_highest_average(list_of_students)
+            the_highest_average(list_of_students, name_of_student)
 
         case '6':
             break
